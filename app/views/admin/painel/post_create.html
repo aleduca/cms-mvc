@@ -1,0 +1,110 @@
+{% extends "admin/painel/layout.html" %} 
+
+{% block admin %}
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>Cadastrar Post</h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content ibox-heading">
+            <h3>
+                <i class="fa fa-user"></i> Cadastrar Post</h3>
+            <button id="show-midias" class="btn btn-danger btn-xs">Mostrar Mídias</button>
+        </div>
+        <div class="ibox-content">
+            <form class="form-horizontal" method="post" action="/adminPosts/store">
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Titulo</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Slug</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="slug" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Agendamento</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="agendamento" class="form-control" id="agendamento">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">Categoria</label>
+                    <div class="col-lg-10">
+                        <select name="categoria" class="form-control">
+                            <!-- lista de categorias -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="midias">
+                    <!-- midias -->
+                    <div id="show-midia-url"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label"></label>
+                    <div class="col-lg-10">
+                     
+                        <div class="ibox-content no-padding">
+                            <textarea name="post" class="post" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-sm btn-white" type="submit">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".post").summernote({
+            height:300,
+            focus:true,
+            tabsize:2,
+            callbacks:{
+                onImageUpload:function(files,editor,weleditable){
+                   for(var i = files.length - 1;i>=0;i--){
+                       upload(files[i],this);
+                   }
+                }
+            }
+        });
+    });
+
+    function upload(file,el){
+
+        var form_data = new FormData();
+        form_data.append('file', file);
+
+        $.ajax({
+            url: '/adminPostImage/store',
+            type: 'post',
+            data: form_data,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                $(el).summernote('editor.insertImage', response);
+            }
+        });
+    }
+
+</script>
+
+ {% endblock %}

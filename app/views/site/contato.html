@@ -1,0 +1,26 @@
+{% extends "Site/Layout.html" %}
+
+{% block content %}
+
+    <h2>Página de contato</h2>
+
+    {{ message('message_email') | raw }}
+
+    <form action="/contato/enviar" method="POST">
+        <label for="nome">Nome:</label>
+        {{ message('nome') }}
+        <input type="text" name="nome">
+
+        <label for="email">Email:</label>
+        {{ message('email') }}
+        <input type="text" name="email">
+
+        <label for="mensagem">mensagem:</label>
+        {{ message('mensagem') }}
+        <textarea name="mensagem"></textarea>
+
+        <label for=""</label>
+        <input type="submit" value="Eviar Email">
+    </form>
+    
+{% endblock %}

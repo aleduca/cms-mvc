@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> 
+        <link href="/assets/admin/css/animate.css" rel="stylesheet">
+        <link href="/assets/admin/css/style.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.css"/>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote-bs4.css"/> 
+        <link href="/assets/admin/css/custom.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/eonasdan-bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"/> 
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                {% include 'admin/includes/nav.html' %}
+            </nav>
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            {% include 'admin/includes/nav_header.html' %}
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            {% include 'admin/includes/nav_links.html' %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="wrapper wrapper-content">
+                    {% block admin %}{% endblock %}
+                </div>
+                <div class="footer">
+                    {% include 'admin/includes/footer.html' %}
+                </div>
+            </div>
+            <div id="right-sidebar">
+                {% include 'admin/includes/right_sidebar.html' %}
+            </div>
+        </div>
+        <!-- Mainly scripts -->
+        <script src="/assets/admin/js/jquery-3.1.1.min.js"></script>
+        <script src="/assets/admin/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/assets/admin/js/bootstrap.min.js"></script>
+       <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> 
+        <script src="/assets/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="/assets/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- Flot -->
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.spline.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.pie.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.symbol.js"></script>
+        <script src="/assets/admin/js/plugins/flot/jquery.flot.time.js"></script>
+        <!-- Peity -->
+        <script src="/assets/admin/js/plugins/peity/jquery.peity.min.js"></script>
+        <script src="/assets/admin/js/demo/peity-demo.js"></script>
+        <!-- Custom and plugin javascript -->
+        <script src="/assets/admin/js/inspinia.js"></script>
+        <script src="/assets/admin/js/plugins/pace/pace.min.js"></script>
+        <!-- jQuery UI -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/locale/pt-br.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/eonasdan-bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="/assets/admin/js/custom/bootstrap-datepicker.js"></script>
+        <!-- Jvectormap -->
+        <script src="/assets/admin/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+        <script src="/assets/admin/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <!-- EayPIE -->
+        <script src="/assets/admin/js/plugins/easypiechart/jquery.easypiechart.js"></script>
+        <!-- Sparkline -->
+        <script src="/assets/admin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+        <!-- Sparkline demo data  -->
+        <script src="/assets/admin/js/demo/sparkline-demo.js"></script>
+        <script src="/assets/admin/js/custom/permissions.js"></script>
+    </body>
+</html>
